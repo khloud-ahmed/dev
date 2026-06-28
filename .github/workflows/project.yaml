@@ -1,13 +1,14 @@
-name: workflow
+name: first workflow
 on: workflow_dispatch
 
-jobs: 
- test: 
-  runs-on:
-   -run:echo "test"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test"
 
-build:
-needs:test
-runs-on :ubunto-latest
-steps:
-- run:echo "build"
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "build"
